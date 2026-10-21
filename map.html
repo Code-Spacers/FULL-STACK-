@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City issue map | NIVARA</title>
+    <meta name="description" content="Browse community-reported civic issues on a live Google Map." />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css?v=20261020e" />
+    <link rel="stylesheet" href="css/animations.css?v=20261020e" />
+    <link rel="stylesheet" href="css/responsive.css?v=20261020e" />
+    <link rel="stylesheet" href="css/pages.css?v=20261020e" />
+  </head>
+  <body data-page="map">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div data-site-nav></div>
+
+    <main id="main" class="page-main">
+      <div class="wrap">
+        <header class="page-head">
+          <div>
+            <p class="kicker">Citizen portal · Live city map</p>
+            <h1>Neighborhood issue map</h1>
+            <p>Browse reports submitted by the community, plotted on Google Maps.</p>
+          </div>
+          <a class="btn btn-primary" href="login.html?next=report.html&amp;msg=report">＋ Report an issue</a>
+        </header>
+
+        <section class="glass map-tools">
+          <label class="search-field">
+            <span class="sr-only">Search map issues</span>
+            <span class="search-field__icon" aria-hidden="true">⌕</span>
+            <input class="form-control" type="search" placeholder="Search location or issue…" id="mapSearch" />
+          </label>
+          <div class="map-filters" id="mapFilters"></div>
+        </section>
+
+        <section class="map-workspace">
+          <div class="map-canvas" id="mapCanvas" role="region" aria-label="Map showing community reports">
+            <div class="map-loading-message">Loading Google Maps…</div>
+          </div>
+          <aside class="glass map-aside">
+            <div class="map-aside__head">
+              <div><p class="kicker">Community activity</p><h2 style="font-size:1.2rem">Current reports</h2></div>
+              <span class="badge"><i class="badge-dot"></i> Live</span>
+            </div>
+            <p style="color:var(--muted);font-size:0.88rem"><strong id="mapCount">0</strong> reports submitted by the community</p>
+            <div class="map-aside__list" id="mapList"></div>
+          </aside>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-bottom">
+        <span>© <span id="year"></span> NIVARA · Academic demonstration</span>
+        <span><a href="report.html">Report an issue</a> · <a href="my-reports.html">My reports</a></span>
+      </div>
+    </footer>
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+    <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+    <script src="js/config.js?v=20261020e"></script>
+    <script type="module" src="js/map.js?v=20261020e"></script>
+  </body>
+</html>

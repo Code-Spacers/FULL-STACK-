@@ -1,0 +1,63 @@
+/* =========================================================
+   NIVARA — RESPONSIVE
+   ========================================================= */
+
+/* ---------- navigation density ----------
+   The home page carries seven links plus Sign in and the Report CTA,
+   so the bar tightens first and collapses into the drawer early. */
+@media (max-width: 1440px) {
+  .nav-inner { gap: 14px; }
+  .nav-links { gap: 15px; }
+  .nav-links a { font-size: 0.88rem; }
+  .nav-cta, .nav-signin { padding: 10px 16px; font-size: 0.86rem; margin-left: 6px; }
+}
+
+@media (max-width: 1140px) {
+  .nav-links {
+    position: fixed; inset: 64px 0 auto 0; flex-direction: column; gap: 0;
+    background: rgba(3,9,14,0.97); backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line); padding: 8px 0 16px;
+    transform: translateY(-130%); transition: transform .35s var(--ease);
+    max-height: calc(100vh - 64px); overflow-y: auto;
+  }
+  .nav.is-open .nav-links { transform: none; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 14px 24px; font-size: 0.95rem; }
+  .nav-links a::after { display: none; }
+  .nav-cta, .nav-signin, .nav-account { display: none; }
+  .nav-mobile-auth, .nav-mobile-cta { display: block; }
+  .nav-links .nav-mobile-cta .btn {
+    display: inline-flex; justify-content: center;
+    width: calc(100% - 48px); margin: 12px 24px 6px; padding: 13px 18px;
+  }
+  .nav-toggle { display: grid; place-items: center; margin-left: auto; }
+}
+
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 30px; }
+  .hero-side { grid-template-columns: repeat(2, 1fr); }
+  .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+  .challenge-grid { grid-template-columns: repeat(2, 1fr); }
+  .dash-layout { grid-template-columns: 1fr; }
+  .explorer { grid-template-columns: 1fr; }
+  .explorer-cats { flex-direction: row; flex-wrap: wrap; }
+  .solution-list { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .calc-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .hero-side { grid-template-columns: 1fr; }
+  .pillar-grid, .challenge-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .charts { grid-template-columns: 1fr; }
+  .explorer-stage .meta { grid-template-columns: 1fr; }
+  .solution { grid-template-columns: 1fr; }
+  .solution-art { border-right: none; border-bottom: 1px solid var(--line); min-height: 120px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .impact-row { grid-template-columns: 60px 20px 1fr; }
+  .section { padding: 80px 0; }
+}

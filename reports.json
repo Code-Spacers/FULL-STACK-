@@ -1,0 +1,57 @@
+[
+  {
+    "id": "NVR-00123",
+    "title": "Large pothole near bus stop",
+    "category": "Pothole",
+    "status": "In Progress",
+    "priority": "High",
+    "location": "9th Main, Jayanagar, Ward 153",
+    "department": "Roads & Civil Works",
+    "reportedAt": "12 Aug 2026, 9:40 AM",
+    "updates": ["Report received", "Inspection scheduled", "Crew assigned"]
+  },
+  {
+    "id": "NVR-00124",
+    "title": "Overflowing garbage bin & sidewalk blockage",
+    "category": "Garbage",
+    "status": "Acknowledged",
+    "priority": "Medium",
+    "location": "4th Cross, Jayanagar, Ward 152",
+    "department": "Sanitation",
+    "reportedAt": "12 Aug 2026, 8:25 AM",
+    "updates": ["Report received", "Assigned to sanitation team"]
+  },
+  {
+    "id": "NVR-00125",
+    "title": "Broken streetlight cluster",
+    "category": "Streetlight",
+    "status": "Reported",
+    "priority": "High",
+    "location": "MG Road, Ward 153",
+    "department": "Electrical Quick Response",
+    "reportedAt": "11 Aug 2026, 8:15 PM",
+    "updates": ["Report received"]
+  },
+  {
+    "id": "NVR-00126",
+    "title": "Drainage dumped on roadside storm drain",
+    "category": "Drainage",
+    "status": "Resolved",
+    "priority": "Low",
+    "location": "Kanakapura Road, Ward 144",
+    "department": "Water & Drainage",
+    "reportedAt": "10 Aug 2026, 2:10 PM",
+    "updates": ["Report received", "Crew assigned", "Work verified and closed"]
+  },
+  {
+    "id": "NVR-00127",
+    "title": "Damaged sidewalk at school crossing",
+    "category": "Sidewalk",
+    "status": "In Progress",
+    "priority": "Medium",
+    "location": "3rd Cross, Jayanagar, Ward 153",
+    "department": "Roads & Civil Works",
+    "reportedAt": "9 Aug 2026, 11:20 AM",
+    "updates": ["Report received", "Site inspection complete"]
+  }
+]

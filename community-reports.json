@@ -1,0 +1,35 @@
+[
+  {
+    "id": "reddit-bengaluru-001",
+    "title": "School bus reported at risk near a road pothole",
+    "category": "Road damage",
+    "location": "Panathur Road, Bengaluru",
+    "summary": "A community post reports a school bus nearly tipping after encountering a pothole. Treat this as an unverified lead; the post does not provide an official civic ticket.",
+    "postedAt": "2025-09-12",
+    "subreddit": "r/Bengaluru",
+    "sourceUrl": "https://www.reddit.com/r/Bengaluru/comments/1nevv98/",
+    "embedUrl": "https://www.redditmedia.com/r/Bengaluru/comments/1nevv98/?ref_source=embed&ref=share&embed=true&theme=dark"
+  },
+  {
+    "id": "reddit-bengaluru-002",
+    "title": "Waste accumulating at the Ejipura flyover median",
+    "category": "Sanitation",
+    "location": "Ejipura Flyover, Bengaluru",
+    "summary": "Residents describe recurring waste accumulation and missed collection. The post later mentions a cleanup, so the current condition should be checked before action.",
+    "postedAt": "2026-09-03",
+    "subreddit": "r/bangalore",
+    "sourceUrl": "https://www.reddit.com/r/bangalore/comments/1w5zs4g/ejipura_flyover_median_has_become_a_garbage_dump/",
+    "embedUrl": "https://www.redditmedia.com/r/bangalore/comments/1w5zs4g/ejipura_flyover_median_has_become_a_garbage_dump/?ref_source=embed&ref=share&embed=true&theme=dark"
+  },
+  {
+    "id": "reddit-bengaluru-003",
+    "title": "Waterlogging after heavy rain",
+    "category": "Drainage",
+    "location": "HBR Layout, Bengaluru",
+    "summary": "A resident post describes waterlogging after several hours of rain despite drainage work. This older post is a community signal, not a current verified incident.",
+    "postedAt": "2024-10-15",
+    "subreddit": "r/Bengaluru",
+    "sourceUrl": "https://www.reddit.com/r/Bengaluru/comments/1g44toq/",
+    "embedUrl": "https://www.redditmedia.com/r/Bengaluru/comments/1g44toq/?ref_source=embed&ref=share&embed=true&theme=dark"
+  }
+]

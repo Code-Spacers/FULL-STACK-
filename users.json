@@ -1,0 +1,17 @@
+[
+  {
+    "id": "citizen-001",
+    "name": "Alex Mercer",
+    "role": "Citizen",
+    "ward": "Ward 153",
+    "email": "alex@example.test"
+  },
+  {
+    "id": "officer-001",
+    "name": "Elena Roy",
+    "role": "Municipal Officer",
+    "department": "Roads & Civil Works",
+    "ward": "Ward 153",
+    "email": "elena.roy@example.test"
+  }
+]

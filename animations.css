@@ -1,0 +1,78 @@
+/* =========================================================
+   NIVARA — ANIMATIONS
+   ========================================================= */
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,255,198,0.55); }
+  70% { box-shadow: 0 0 0 12px rgba(0,255,198,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,255,198,0); }
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  60% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* reveal on scroll */
+.reveal, [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.is-in, [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* stagger children */
+.stagger.is-in > * {
+  animation: slideUp .6s var(--ease) both;
+}
+.stagger.is-in > *:nth-child(1) { animation-delay: .05s; }
+.stagger.is-in > *:nth-child(2) { animation-delay: .12s; }
+.stagger.is-in > *:nth-child(3) { animation-delay: .19s; }
+.stagger.is-in > *:nth-child(4) { animation-delay: .26s; }
+.stagger.is-in > *:nth-child(5) { animation-delay: .33s; }
+.stagger.is-in > *:nth-child(6) { animation-delay: .40s; }
+.stagger.is-in > *:nth-child(7) { animation-delay: .47s; }
+.stagger.is-in > *:nth-child(8) { animation-delay: .54s; }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* hero entrance */
+.hero-inner > div > *, .hero-side > * { animation: slideUp .8s var(--ease) both; }
+.hero-inner > div > *:nth-child(1) { animation-delay: .1s; }
+.hero-inner > div > *:nth-child(2) { animation-delay: .2s; }
+.hero-inner > div > *:nth-child(3) { animation-delay: .3s; }
+.hero-inner > div > *:nth-child(4) { animation-delay: .4s; }
+.hero-inner > div > *:nth-child(5) { animation-delay: .5s; }
+.hero-side > *:nth-child(1) { animation-delay: .3s; }
+.hero-side > *:nth-child(2) { animation-delay: .4s; }
+.hero-side > *:nth-child(3) { animation-delay: .5s; }
+.hero-side > *:nth-child(4) { animation-delay: .6s; }
+.hero-side > *:nth-child(5) { animation-delay: .7s; }
+.hero-side .panel { animation: floaty 3s ease-in-out infinite; }
+.hero-side .panel:nth-child(2) { animation-delay: 0s; }
+.hero-side .panel:nth-child(3) { animation-delay: .25s; }
+.hero-side .panel:nth-child(4) { animation-delay: .5s; }
+.hero-side .panel:nth-child(5) { animation-delay: .75s; }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  .reveal, [data-reveal] { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}

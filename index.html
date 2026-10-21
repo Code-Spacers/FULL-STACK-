@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NIVARA — Sustainable Cities & Communities</title>
+    <meta name="description" content="NIVARA is a dynamic platform exploring UN Sustainable Development Goal 11: Sustainable Cities and Communities — inclusive, safe, resilient, and sustainable urban futures." />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css?v=20261020e" />
+    <link rel="stylesheet" href="css/animations.css?v=20261020e" />
+    <link rel="stylesheet" href="css/responsive.css?v=20261020e" />
+    <link rel="stylesheet" href="css/pages.css?v=20261020e" />
+    <link rel="stylesheet" href="css/chatbot.css?v=20261020g" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="loader" id="loader" role="status" aria-live="polite">
+      <div class="loader-mark">
+        <strong>NIVARA</strong>
+        <div class="loader-bar" aria-hidden="true"><span></span></div>
+        <p>Rendering the city</p>
+      </div>
+    </div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+      <div class="nav-inner">
+        <a class="logo" href="#home">
+          <img src="assets/icons/logo.svg" alt="" width="32" height="32" />
+          NIVARA
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span></button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#explore">SDG 11</a></li>
+          <li><a href="#challenges">Challenges</a></li>
+          <li><a href="#live-city">Live City</a></li>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="my-reports.html">My reports</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="nav-mobile-auth" data-mobile-auth></li>
+          <li class="nav-mobile-cta"><a class="btn btn-primary" href="login.html?next=report.html&amp;msg=report">＋ Report an issue</a></li>
+        </ul>
+        <div data-account-slot></div>
+        <a class="btn btn-primary nav-cta" href="login.html?next=report.html&amp;msg=report">＋ Report an issue</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-inner">
+          <div>
+            <p class="kicker">UN SDG 11 · Sustainable Cities & Communities</p>
+            <h1>Building cities that <span class="grad">hold everyone</span> and last.</h1>
+            <p class="hero-copy">
+              NIVARA turns sustainable-development goals into systems you can see, measure, and improve —
+              housing, mobility, public space, ecology, and disaster readiness for a livable urban future.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#explore">Explore the vision</a>
+              <a class="btn btn-ghost" href="#live-city">See the live city</a>
+            </div>
+            <div class="hero-meta">
+              <span class="sdg-chip"><b>Goal 11</b> Inclusive · Safe · Resilient · Sustainable</span>
+              <span id="cityClock" aria-live="off">--:--</span>
+            </div>
+          </div>
+          <aside class="hero-side" aria-label="City snapshot">
+            <div class="glass panel status-live">
+              <div>
+                <small class="kicker">City status</small>
+                <div>Night operations · demonstration</div>
+              </div>
+              <span class="pulse" aria-hidden="true"></span>
+            </div>
+            <div class="glass panel"><span>Sustainable mobility</span><strong data-count="78" data-suffix="%">0%</strong></div>
+            <div class="glass panel"><span>Clean energy mix</span><strong data-count="41" data-suffix="%">0%</strong></div>
+            <div class="glass panel"><span>Green public space</span><strong data-count="26" data-suffix="%">0%</strong></div>
+            <div class="glass panel"><span>Waste recovered</span><strong data-count="62" data-suffix="%">0%</strong></div>
+          </aside>
+        </div>
+        <div class="scroll-hint">Scroll<i></i></div>
+      </section>
+
+      <!-- EXPLORE / SDG 11 -->
+      <section class="section" id="explore">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">The goal</p>
+            <h2>Six pillars of a sustainable city.</h2>
+            <p class="lede">
+              Sustainable Development Goal 11 calls for inclusive, safe, resilient, and sustainable cities.
+              NIVARA translates those targets into design decisions people can actually live with.
+            </p>
+          </div>
+          <div class="pillar-grid stagger" data-reveal>
+            <article class="glass pillar">
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M6 30V16l12-8 12 8v14H6z" stroke="currentColor" stroke-width="1.5"/><path d="M15 30v-8h6v8" stroke="currentColor" stroke-width="1.5"/></svg>
+              <h3>Adequate housing</h3>
+              <p>Safe, affordable dwellings with basic services — the foundation of Target 11.1.</p>
+            </article>
+            <article class="glass pillar">
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="5" y="18" width="26" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="28" r="2.5" fill="currentColor"/><circle cx="24" cy="28" r="2.5" fill="currentColor"/></svg>
+              <h3>Public transport</h3>
+              <p>Accessible, affordable mobility that cuts congestion and expands opportunity (11.2).</p>
+            </article>
+            <article class="glass pillar">
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 18h20M18 8c3 4 3 16 0 20M18 8c-3 4-3 16 0 20" stroke="currentColor" stroke-width="1.2"/></svg>
+              <h3>Inclusive public space</h3>
+              <p>Parks, streets, and civic rooms that work for children, elders, and people with disabilities (11.7).</p>
+            </article>
+            <article class="glass pillar">
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 28c6-8 10-12 10-16a10 10 0 10-20 0c0 4 4 8 10 16z" stroke="currentColor" stroke-width="1.5"/></svg>
+              <h3>Lower environmental impact</h3>
+              <p>Cleaner air, careful water use, and waste systems that treat the city as a living metabolism (11.6).</p>
+            </article>
+            <article class="glass pillar">
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M6 24l12-14 12 14H6z" stroke="currentColor" stroke-width="1.5"/><path d="M18 16v6" stroke="currentColor" stroke-width="1.5"/></svg>
+              <h3>Disaster resilience</h3>
+              <p>Prepared communities, early warning, and infrastructure that can absorb climate shocks (11.5, 11.b).</p>
+            </article>
+            <article class="glass pillar">
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="7" y="7" width="22" height="22" stroke="currentColor" stroke-width="1.5"/><path d="M7 18h22M18 7v22" stroke="currentColor" stroke-width="1.2"/></svg>
+              <h3>Sustainable planning</h3>
+              <p>Participatory, integrated urban planning so growth does not outrun nature or equity (11.3).</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+      <section class="section" id="challenges">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">Urban pressure</p>
+            <h2>The fractures a smart city must heal.</h2>
+            <p class="lede">Everyday failures accumulate into inequity. Filter the challenges and follow the path from harm to a practical fix.</p>
+          </div>
+          <div class="filters" id="challengeFilters" role="tablist" aria-label="Challenge filters">
+            <button class="chip is-on" data-filter="all">All</button>
+            <button class="chip" data-filter="mobility">Mobility</button>
+            <button class="chip" data-filter="safety">Safety</button>
+            <button class="chip" data-filter="environment">Environment</button>
+            <button class="chip" data-filter="access">Access</button>
+          </div>
+          <div class="challenge-grid stagger" id="challengeGrid" data-reveal></div>
+        </div>
+      </section>
+
+      <!-- LIVE CITY -->
+      <section class="section" id="live-city">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">Live city intelligence</p>
+            <h2>See the city as a system, not a skyline.</h2>
+            <p class="lede">Labelled demonstration data showing how operators might watch air, energy, water, waste, movement, and canopy. Not connected to municipal sensors.</p>
+          </div>
+          <div class="dash-controls">
+            <label><span class="sr-only">District</span>
+              <select id="districtSelect">
+                <option value="ridge">Ridge District</option>
+                <option value="harbour">Harbour Belt</option>
+                <option value="meadow">Meadow Arc</option>
+              </select>
+            </label>
+            <label><span class="sr-only">Time of day</span>
+              <select id="timeSelect">
+                <option value="morning">Morning</option>
+                <option value="peak">Peak commute</option>
+                <option value="night" selected>Night operations</option>
+              </select>
+            </label>
+            <p class="demo-note" id="sysStatus">System: simulation idle</p>
+          </div>
+          <div class="dash-layout">
+            <div>
+              <div class="kpi-grid" id="kpiGrid"></div>
+              <div class="charts">
+                <div class="glass chart-box"><small class="kicker">Air index trend</small><canvas id="airChart" width="480" height="160" aria-label="Air quality demonstration chart"></canvas></div>
+                <div class="glass chart-box"><small class="kicker">Energy vs mobility</small><canvas id="mixChart" width="480" height="160" aria-label="Energy and mobility demonstration chart"></canvas></div>
+              </div>
+            </div>
+            <aside class="glass" style="padding:18px">
+              <div class="sys-status"><strong>District canvas</strong><span class="badge" id="simBadge">Demo data</span></div>
+              <svg class="city-map" id="cityMap" viewBox="0 0 400 280" role="img" aria-label="Stylized district map"></svg>
+              <p class="demo-note">Nodes glow with the selected district profile. Values refresh when filters change.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOLUTIONS -->
+      <section class="section" id="solutions">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">Solutions</p>
+            <h2>Practical technology with civic consequence.</h2>
+            <p class="lede">Each proposal pairs a familiar urban problem with technology already used in cities worldwide.</p>
+          </div>
+          <div class="solution-list stagger" data-reveal>
+            <article class="glass solution">
+              <div class="solution-art" data-art="lights"></div>
+              <div class="solution-copy"><h3>Solar-powered streetlights</h3>
+                <ol><li>Problem: Dark corridors after grid failure or delayed maintenance.</li><li>Technology: Photovoltaic canopies with battery storage and occupancy dimming.</li><li>Environment: Cuts night-time grid draw and avoids diesel backup.</li><li>Community: Safer walking routes, especially for shift workers and students.</li></ol>
+              </div>
+            </article>
+            <article class="glass solution">
+              <div class="solution-art" data-art="waste"></div>
+              <div class="solution-copy"><h3>Intelligent waste collection</h3>
+                <ol><li>Problem: Overflowing bins and trucks running empty routes.</li><li>Technology: Fill-level sensing and route software for municipal fleets.</li><li>Environment: Fewer unnecessary vehicle kilometres and less leakage into drains.</li><li>Community: Cleaner markets and fewer pest-related complaints.</li></ol>
+              </div>
+            </article>
+            <article class="glass solution">
+              <div class="solution-art" data-art="traffic"></div>
+              <div class="solution-copy"><h3>Smart traffic management</h3>
+                <ol><li>Problem: Peak congestion that stalls buses as well as private cars.</li><li>Technology: Adaptive signals with transit priority, not only camera enforcement.</li><li>Environment: Smoother flow reduces idling emissions at junctions.</li><li>Community: More reliable bus times make car-free commuting realistic.</li></ol>
+              </div>
+            </article>
+            <article class="glass solution">
+              <div class="solution-art" data-art="water"></div>
+              <div class="solution-copy"><h3>Rainwater harvesting</h3>
+                <ol><li>Problem: Storm runoff floods streets while households still buy tanker water.</li><li>Technology: Roof catchments, first-flush filters, and recharge pits at plot and ward scale.</li><li>Environment: Recharges local aquifers and eases pressure on distant sources.</li><li>Community: More reliable non-potable water for gardens, flushing, and cooling.</li></ol>
+              </div>
+            </article>
+            <article class="glass solution">
+              <div class="solution-art" data-art="transit"></div>
+              <div class="solution-copy"><h3>Electric public transportation</h3>
+                <ol><li>Problem: Diesel buses concentrate pollution on corridors poorest riders use.</li><li>Technology: Depot charging, opportunity charging, and bus-priority lanes.</li><li>Environment: Zero tailpipe emissions on the route; grid mix still matters.</li><li>Community: Quieter streets and cleaner air at stops and terminals.</li></ol>
+              </div>
+            </article>
+            <article class="glass solution">
+              <div class="solution-art" data-art="roofs"></div>
+              <div class="solution-copy"><h3>Green rooftops</h3>
+                <ol><li>Problem: Heat islands and stormwater spikes on sealed roofs.</li><li>Technology: Extensive sedum or intensive gardens with waterproofing layers.</li><li>Environment: Cools surfaces and delays runoff during intense rain.</li><li>Community: Shared amenity space where structure and access allow it.</li></ol>
+              </div>
+            </article>
+            <article class="glass solution">
+              <div class="solution-art" data-art="streets"></div>
+              <div class="solution-copy"><h3>Pedestrian-friendly streets</h3>
+                <ol><li>Problem: Discontinuous sidewalks force people into traffic.</li><li>Technology: Continuous footways, kerb cuts, shade trees, and 30 km/h design speeds.</li><li>Environment: Shorter car trips when walking becomes the default.</li><li>Community: Independent mobility for children and older residents.</li></ol>
+              </div>
+            </article>
+            <article class="glass solution">
+              <div class="solution-art" data-art="civic"></div>
+              <div class="solution-copy"><h3>Citizen-powered civic reporting</h3>
+                <ol><li>Problem: Issues stay invisible until they become emergencies.</li><li>Technology: Structured digital reports with photos, location, and a reference ID.</li><li>Environment: Faster repair of leaks, dumps, and failed lights reduces risk.</li><li>Community: A documented loop between residents and works departments.</li></ol>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPORT -->
+      <section class="section" id="report">
+        <div class="wrap grid-2">
+          <div>
+            <div class="section-head reveal">
+              <p class="kicker">Civic reporting demo</p>
+              <h2>Log a city issue. Keep the record on this device.</h2>
+              <p class="lede">A frontend demonstration. Reports are stored in your browser with localStorage — nothing is sent to any server.</p>
+            </div>
+            <form class="glass form-grid" id="reportForm" novalidate>
+              <label class="field"><span>Issue category</span>
+                <select name="category" required>
+                  <option value="">Select a category</option>
+                  <option>Pothole</option><option>Streetlight</option><option>Waste overflow</option>
+                  <option>Water leak</option><option>Accessibility</option><option>Other</option>
+                </select>
+              </label>
+              <label class="field"><span>Description</span>
+                <textarea name="description" maxlength="400" required placeholder="What did you observe, and how does it affect people?"></textarea>
+              </label>
+              <label class="field"><span>Location</span>
+                <input name="location" required maxlength="120" placeholder="Street, landmark, or neighbourhood" />
+              </label>
+              <p class="error" id="formError" role="alert"></p>
+              <p class="success" id="formSuccess" role="status"></p>
+              <button class="btn btn-primary" type="submit">Submit report</button>
+            </form>
+          </div>
+          <div>
+            <h3>Reports on this device</h3>
+            <p class="demo-note">Empty until you submit. Statuses are simulated.</p>
+            <div class="report-list" id="reportList"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALCULATOR -->
+      <section class="section" id="calculator">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">Sustainability calculator</p>
+            <h2>Illustrate a week of quieter impact.</h2>
+            <p class="lede">Estimates from transparent assumptions below — not measured footprints, audits, or offsets.</p>
+          </div>
+          <div class="calc-grid">
+            <form class="glass" id="calcForm" style="padding:26px;display:grid;gap:18px">
+              <label class="slider-row"><span>Weekly public-transport trips <b id="tripLabel">6</b></span>
+                <input type="range" name="trips" min="0" max="20" value="6" />
+              </label>
+              <label class="check-row"><input type="checkbox" name="leds" checked /> LED lighting and unused-device shutdown</label>
+              <label class="check-row"><input type="checkbox" name="segregate" checked /> Household waste segregation</label>
+              <label class="check-row"><input type="checkbox" name="water" /> Shorter showers and tap discipline</label>
+              <div class="hero-actions">
+                <button class="btn btn-primary" type="submit">Estimate week</button>
+                <button class="btn" type="reset" id="calcReset">Reset</button>
+              </div>
+            </form>
+            <div class="glass result-card" id="calcResult">
+              <small class="kicker">Illustrative week</small>
+              <p style="color:var(--muted);margin-top:10px">Adjust the inputs and estimate.</p>
+            </div>
+          </div>
+          <p class="demo-note" style="margin-top:16px">
+            Assumptions: each public-transport trip replaces an 8 km car trip at ~120 g CO₂e/km versus ~40 g CO₂e/passenger-km for an urban bus. Energy action ≈ 0.7 kWh/day avoided. Water action ≈ 40 litres/day.
+          </p>
+        </div>
+      </section>
+
+      <!-- IMPACT -->
+      <section class="section" id="impact">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">Impact map</p>
+            <h2>Features aligned to SDG 11 targets.</h2>
+          </div>
+          <div class="timeline reveal">
+            <article class="impact-row"><div class="impact-year">11.1</div><div class="spine"></div><div class="impact-copy glass"><h3>Safer, more inclusive cities</h3><p>Civic reporting and lit, walkable streets make hazards visible and fixable, supporting adequate services in every neighbourhood.</p></div></article>
+            <article class="impact-row"><div class="impact-year">11.2</div><div class="spine"></div><div class="impact-copy glass"><h3>Sustainable transport</h3><p>Live mobility KPIs, electric buses, and signal priority treat public transport as the city's backbone rather than leftover space.</p></div></article>
+            <article class="impact-row"><div class="impact-year">11.3</div><div class="spine"></div><div class="impact-copy glass"><h3>Participatory planning</h3><p>Residents see the same picture planners use — a rehearsal for Target 11.3's inclusive, participatory urban planning.</p></div></article>
+            <article class="impact-row"><div class="impact-year">11.6</div><div class="spine"></div><div class="impact-copy glass"><h3>Reduced environmental impact</h3><p>Air, waste, water, and energy tiles make urban metabolism visible so environmental load can be discussed with numbers.</p></div></article>
+            <article class="impact-row"><div class="impact-year">11.7</div><div class="spine"></div><div class="impact-copy glass"><h3>Green and public space</h3><p>Urban forest and green-roof proposals expand accessible public space, including for women, children, older persons, and persons with disabilities.</p></div></article>
+            <article class="impact-row"><div class="impact-year">11.b</div><div class="spine"></div><div class="impact-copy glass"><h3>Resilience to disasters</h3><p>Rainwater systems, canopy, and status monitoring are framed as climate-adaptation infrastructure, not decoration.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT + CTA -->
+      <section class="section" id="about">
+        <div class="wrap about-grid">
+          <div class="section-head reveal">
+            <p class="kicker">About NIVARA</p>
+            <h2>An urban innovation studio for SDG 11.</h2>
+            <p class="lede">NIVARA is an academic exhibition platform showing how design, data literacy, and civic tools can support Sustainable Cities and Communities. It does not operate municipal services.</p>
+            <p style="color:var(--muted);margin-top:12px">Tagline: <strong style="color:var(--text)">Reimagining Tomorrow. Sustaining Today.</strong></p>
+          </div>
+          <aside class="glass">
+            <h3>Credits</h3>
+            <p>Conceptual framing draws on the United Nations 2030 Agenda, specifically Goal 11 and its published targets. Visual language is original. Demonstration metrics are synthetic.</p>
+          </aside>
+        </div>
+        <div class="wrap" style="margin-top:40px">
+          <div class="glass cta-band reveal">
+            <h2>Better cities. Better lives. A sustainable tomorrow.</h2>
+            <p>Make sustainable urban systems legible, so communities can demand and design better cities.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="login.html?next=report.html&amp;msg=report">＋ Report an issue</a>
+              <a class="btn btn-ghost" href="map.html">Open the city map</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:12px">NIVARA</div>
+          <p>Mission: make sustainable urban systems legible, so communities can demand and design better cities.</p>
+          <p style="margin-top:10px"><strong style="color:var(--text)">Better Cities. Better Lives. A Sustainable Tomorrow.</strong></p>
+        </div>
+        <div>
+          <h3>Navigate</h3>
+          <a href="#home">Home</a><a href="#explore">SDG 11</a><a href="#challenges">Challenges</a>
+          <a href="#live-city">Live City</a><a href="#solutions">Solutions</a><a href="#about">About</a>
+        </div>
+        <div>
+          <h3>SDG 11</h3>
+          <p>United Nations Sustainable Development Goal 11: Sustainable Cities and Communities.</p>
+          <p style="margin-top:8px">Exhibition project. No live municipal integration.</p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span>© <span id="year"></span> NIVARA · Academic demonstration</span>
+        <span>Designed for a cinematic, accessible dark interface</span>
+      </div>
+    </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+    <div class="modal" id="challengeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="glass modal-card">
+        <h3 id="modalTitle"></h3>
+        <div id="modalBody"></div>
+        <div class="modal-actions">
+          <a class="btn btn-primary" id="modalCta" href="#solutions">See solutions</a>
+          <button class="btn" type="button" id="modalClose">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/config.js?v=20261020e"></script>
+    <script type="module" src="js/main.js?v=20261020e"></script>
+    <script src="js/chatbot.js?v=20261020g" defer></script>
+  </body>
+</html>

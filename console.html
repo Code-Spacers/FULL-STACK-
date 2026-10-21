@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resolution console | NIVARA</title>
+    <meta name="description" content="NIVARA authority console: triage citizen reports, assign field officers, initiate repair work, and track resolution analytics in real time." />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" /></noscript>
+
+    <link rel="stylesheet" href="css/style.css?v=20261020e" />
+    <link rel="stylesheet" href="css/animations.css?v=20261020e" />
+    <link rel="stylesheet" href="css/responsive.css?v=20261020e" />
+    <link rel="stylesheet" href="css/pages.css?v=20261020e" />
+    <link rel="stylesheet" href="css/console.css?v=20261020e" />
+  </head>
+  <body data-page="console">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div data-site-nav></div>
+
+    <main id="main" class="page-main">
+      <div class="wrap">
+        <header class="page-head">
+          <div>
+            <p class="kicker">Authority console · Issue resolution</p>
+            <h1>Resolution command center</h1>
+            <p>Review citizen reports, assign field officers, drive repairs, and watch SLA analytics update live.</p>
+          </div>
+          <div class="console-head-side">
+            <span class="console-officer" id="officerChip" hidden></span>
+            <span class="console-live"><span class="pulse" aria-hidden="true"></span> Live · <span id="lastUpdated">—</span></span>
+          </div>
+        </header>
+
+        <div class="glass console-gate" id="consoleGate" hidden>
+          <strong>Officers only</strong>
+          <p>Sign in with your authority ID to open the resolution console.</p>
+          <a class="btn btn-primary" href="login.html?role=authority">Authority sign in →</a>
+        </div>
+
+        <div id="consoleApp" hidden>
+          <section aria-label="Key metrics">
+            <div class="kpi-grid console-kpis" id="kpiGrid"></div>
+          </section>
+
+          <section class="console-charts" aria-label="Resolution analytics">
+            <article class="glass chart-box">
+              <div class="chart-box__head">
+                <h3>Reports vs resolved</h3><small>last 14 days</small>
+              </div>
+              <canvas id="trendChart" aria-label="Daily reported versus resolved chart"></canvas>
+              <div class="chart-legend" id="trendLegend"></div>
+            </article>
+            <article class="glass chart-box">
+              <div class="chart-box__head">
+                <h3>Status mix</h3><small>all reports</small>
+              </div>
+              <div class="donut-row">
+                <canvas id="statusChart" aria-label="Status distribution donut chart"></canvas>
+                <div class="chart-legend chart-legend--stack" id="statusLegend"></div>
+              </div>
+            </article>
+            <article class="glass chart-box">
+              <div class="chart-box__head">
+                <h3>Department load</h3><small>open of total</small>
+              </div>
+              <canvas id="deptChart" aria-label="Open reports by department"></canvas>
+            </article>
+            <article class="glass chart-box">
+              <div class="chart-box__head">
+                <h3>Top categories</h3><small>open of total</small>
+              </div>
+              <canvas id="catChart" aria-label="Open reports by category"></canvas>
+            </article>
+          </section>
+
+          <section class="console-split">
+            <div class="console-queue-col">
+              <div class="glass map-tools queue-toolbar">
+                <label class="search-field">
+                  <span class="sr-only">Search the triage queue</span>
+                  <span class="search-field__icon" aria-hidden="true">⌕</span>
+                  <input class="form-control" type="search" id="queueSearch" placeholder="Search title, location, reference, ward…" />
+                </label>
+                <div class="map-filters" id="queueFilters"></div>
+                <select class="form-control queue-sort" id="queueSort" aria-label="Sort queue">
+                  <option value="sla">Sort: SLA risk first</option>
+                  <option value="newest">Sort: Newest first</option>
+                  <option value="priority">Sort: Priority</option>
+                  <option value="ward">Sort: Ward</option>
+                </select>
+              </div>
+              <div class="queue-list" id="queueList" aria-live="polite"></div>
+            </div>
+
+            <aside class="console-side">
+              <section class="glass side-card" aria-label="Officer roster">
+                <h3>Field officers</h3>
+                <p class="side-card__sub">Live workload · click to filter</p>
+                <div class="roster" id="rosterList"></div>
+              </section>
+              <section class="glass side-card" aria-label="Ward performance">
+                <h3>Ward performance</h3>
+                <p class="side-card__sub">Open · SLA compliance</p>
+                <div class="ward-table" id="wardTable"></div>
+              </section>
+              <section class="glass side-card" aria-label="Recent activity">
+                <h3>Activity</h3>
+                <p class="side-card__sub">Latest attributed actions</p>
+                <div class="feed" id="activityFeed"></div>
+              </section>
+            </aside>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-bottom">
+        <span>© <span id="year"></span> NIVARA · Academic demonstration · officer actions are logged locally</span>
+        <span><a href="map.html">City map</a> · <a href="report.html">Report an issue</a> · <a href="my-reports.html">Citizen portal</a></span>
+      </div>
+    </footer>
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+    <div class="modal" id="reportModal" role="dialog" aria-modal="true" aria-label="Report detail" hidden>
+      <div class="modal-card console-modal" id="modalBody"></div>
+    </div>
+    <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+    <script src="js/config.js?v=20261020e"></script>
+    <script type="module" src="js/console.js?v=20261020e"></script>
+  </body>
+</html>

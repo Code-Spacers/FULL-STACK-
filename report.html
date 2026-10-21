@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report or track an issue | NIVARA</title>
+    <meta name="description" content="Check the status and authority action history of a NIVARA report by reference number, or sign in to create a new civic issue complaint." />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css?v=20261020e" />
+    <link rel="stylesheet" href="css/animations.css?v=20261020e" />
+    <link rel="stylesheet" href="css/responsive.css?v=20261020e" />
+    <link rel="stylesheet" href="css/pages.css?v=20261020e" />
+  </head>
+  <body data-page="report">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div data-site-nav></div>
+
+    <main id="main" class="page-main">
+      <div class="wrap">
+        <header class="page-head">
+          <div>
+            <p class="kicker">Citizen portal · Report &amp; track</p>
+            <h1>Report or track an issue</h1>
+            <p>Enter a reference number to see the current status and the authority's action history — or start a new complaint.</p>
+          </div>
+          <span class="badge badge-success">Secure · Public service</span>
+        </header>
+
+        <div class="report-layout">
+          <div class="report-main">
+            <!-- 1 · public status lookup -->
+            <section class="glass hub-card" aria-labelledby="trackTitle">
+              <p class="kicker">Track a report</p>
+              <h2 id="trackTitle">Check status by reference number</h2>
+              <p class="hub-lede">Visitors can look up any report on this device: current status, progress timeline, and every action taken by the city authority.</p>
+              <form id="trackForm" novalidate>
+                <div class="input-group">
+                  <label class="sr-only" for="trackId">Report reference number</label>
+                  <input class="form-control" id="trackId" name="trackId" autocomplete="off" spellcheck="false" placeholder="e.g. NVR-1000" />
+                  <button class="btn btn-primary" type="submit">Track status</button>
+                </div>
+                <span class="form-hint">Reference numbers look like NVR-1000 · try NVR-1000 or NVR-1003.</span>
+              </form>
+              <div class="track-result" id="trackResult" aria-live="polite"></div>
+            </section>
+
+            <!-- 2 · new complaint entry -->
+            <section class="glass hub-card" aria-labelledby="newTitle">
+              <p class="kicker">Something new?</p>
+              <h2 id="newTitle">Create a new complaint</h2>
+              <p class="hub-lede">Sign in first, then describe the problem with photos, a category, and a mapped location so the right crew can be dispatched.</p>
+              <div>
+                <button class="btn btn-primary" id="startComplaint" type="button">Create new complaint →</button>
+              </div>
+              <span class="form-hint">An account is required to file a complaint and track its resolution.</span>
+            </section>
+
+            <!-- 3 · complaint form, hidden until sign-in -->
+            <section id="composePanel" hidden aria-label="New complaint form">
+              <div class="compose-head">
+                <div>
+                  <p class="kicker">Citizen portal · New complaint</p>
+                  <h2>Describe the issue</h2>
+                </div>
+                <button class="btn btn-sm" type="button" id="closeCompose">← Back to status lookup</button>
+              </div>
+              <form class="glass report-form" id="reportForm" novalidate>
+                <input type="hidden" name="latitude" />
+                <input type="hidden" name="longitude" />
+
+                <div class="form-step">
+                  <span class="step-number">1</span>
+                  <div><h2>Add photos</h2><p>A clear image helps the response team assess the issue. Up to 4 images.</p></div>
+                </div>
+                <div>
+                  <label class="dropzone" id="dropzone" for="reportImages">
+                    <input class="sr-only" id="reportImages" type="file" accept="image/*" multiple />
+                    <span class="up-icon" aria-hidden="true">↑</span>
+                    <strong>Choose photos or drag them here</strong>
+                    <small>JPG or PNG · up to 10 MB each</small>
+                  </label>
+                  <div class="image-grid" id="imageGrid" style="margin-top:12px"></div>
+                </div>
+
+                <div class="form-step">
+                  <span class="step-number">2</span>
+                  <div><h2>Issue details</h2><p>Describe the problem so the right crew can prepare.</p></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="title">Short title</label>
+                  <input class="form-control" id="title" name="title" required maxlength="90" placeholder="e.g. Large pothole near bus stop" />
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="category">Issue category</label>
+                    <select class="form-control" id="category" name="category" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="priority">Urgency</label>
+                    <select class="form-control" id="priority" name="priority"></select>
+                  </div>
+                </div>
+
+                <div class="form-step">
+                  <span class="step-number">3</span>
+                  <div><h2>Location</h2><p>Search an address, use your GPS, or drop a pin on the map.</p></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="location">Address or landmark</label>
+                  <div class="input-group">
+                    <div class="autocomplete-host" style="flex:1">
+                      <input class="form-control" id="location" name="location" required autocomplete="off" placeholder="Start typing a street, area, or landmark" />
+                    </div>
+                    <button class="btn" type="button" id="useLocation">Use my location</button>
+                  </div>
+                  <span class="form-hint" id="locationHint">Search an address so your report can be pinned accurately.</span>
+                </div>
+                <div class="map-picker" id="mapPicker"><div class="map-loading-message">Loading map…</div></div>
+
+                <div class="form-step">
+                  <span class="step-number">4</span>
+                  <div><h2>Description</h2><p>Add any safety concerns or details that help the crew.</p></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="description">What did you notice?</label>
+                  <textarea class="form-control" id="description" name="description" required minlength="12" maxlength="600" placeholder="Describe the issue and any safety concerns…"></textarea>
+                </div>
+                <label class="form-check"><input type="checkbox" name="isPublic" checked /><span>This report may appear on the public issue map.</span></label>
+                <p class="field-error" id="formError" role="alert"></p>
+                <button class="btn btn-primary" type="submit" id="submitReport">Submit report for review →</button>
+                <div class="report-result" id="reportResult" hidden></div>
+              </form>
+            </section>
+          </div>
+
+          <aside class="report-aside">
+            <article class="glass card">
+              <p class="kicker">What happens next</p>
+              <ol class="workflow-list">
+                <li><i>1</i><span><b>Report received</b><small>You get a reference number instantly.</small></span></li>
+                <li><i>2</i><span><b>Routed by category</b><small>The matching city department is assigned.</small></span></li>
+                <li><i>3</i><span><b>City team review</b><small>Track status from My reports.</small></span></li>
+                <li><i>4</i><span><b>Resolution verified</b><small>Updates appear on the map.</small></span></li>
+              </ol>
+            </article>
+            <article class="glass card">
+              <strong>Community first</strong>
+              <p style="color:var(--muted);font-size:0.88rem;margin-top:6px">Reports are kept in this browser, and in the Nivara database when the API is running. No municipal system is connected.</p>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-bottom">
+        <span>© <span id="year"></span> NIVARA · Academic demonstration</span>
+        <span><a href="map.html">Live map</a> · <a href="my-reports.html">My reports</a></span>
+      </div>
+    </footer>
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+    <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+    <script src="js/config.js?v=20261020e"></script>
+    <script type="module" src="js/report.js?v=20261020e"></script>
+  </body>
+</html>

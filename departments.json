@@ -1,0 +1,30 @@
+[
+  {
+    "id": "roads",
+    "name": "Roads & Civil Works",
+    "color": "#087f73",
+    "activeCrews": 12,
+    "openIssues": 42
+  },
+  {
+    "id": "sanitation",
+    "name": "Sanitation",
+    "color": "#168b76",
+    "activeCrews": 8,
+    "openIssues": 28
+  },
+  {
+    "id": "electrical",
+    "name": "Electrical Quick Response",
+    "color": "#e39a16",
+    "activeCrews": 5,
+    "openIssues": 19
+  },
+  {
+    "id": "water",
+    "name": "Water & Drainage",
+    "color": "#286fe6",
+    "activeCrews": 7,
+    "openIssues": 16
+  }
+]

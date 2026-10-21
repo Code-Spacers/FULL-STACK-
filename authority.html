@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authority sign in | NIVARA</title>
+    <meta name="description" content="NIVARA city authority console sign in: officer ID, department, secure access code, and one-time verification." />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css?v=20261020e" />
+    <link rel="stylesheet" href="css/animations.css?v=20261020e" />
+    <link rel="stylesheet" href="css/pages.css?v=20261020e" />
+    <link rel="stylesheet" href="css/auth.css?v=20261020e" />
+  </head>
+  <body data-page="authority" data-auth-role="authority">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="auth-topbar">
+      <a class="logo" href="index.html">
+        <img src="assets/icons/logo.svg" alt="" width="30" height="30" /> NIVARA
+      </a>
+      <nav>
+        <a href="index.html">Back to site</a>
+        <a href="map.html">City map</a>
+        <a class="btn btn-ghost" href="login.html">Citizen sign in</a>
+      </nav>
+    </header>
+
+    <main id="main" class="auth-shell">
+      <!-- FORM -->
+      <section class="auth-side-form" aria-label="Sign in">
+        <div class="glass auth-card">
+          <div class="auth-card__brand">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10l8-6 8 6v10H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+            <span>
+              <small>Secure portal</small>
+              <strong>NIVARA Access</strong>
+            </span>
+          </div>
+
+          <h1 id="authTitle">Welcome back</h1>
+          <p class="auth-sub" id="authSub">Sign in to report issues, track fixes, and follow your ward.</p>
+
+          <div class="role-switch" data-role="authority" role="tablist" aria-label="Choose account type">
+            <span class="role-switch__indicator" aria-hidden="true"></span>
+            <button class="role-switch__btn" type="button" data-set-role="citizen" role="tab" aria-selected="false">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c.9-3.6 3.6-5.4 7-5.4s6.1 1.8 7 5.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              Citizen
+            </button>
+            <button class="role-switch__btn is-on" type="button" data-set-role="authority" role="tab" aria-selected="true">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.1-7 9.5-4.1-1.4-7-5.2-7-9.5V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Authority
+            </button>
+          </div>
+
+          <div class="auth-panels">
+            <!-- CITIZEN · SIGN IN -->
+            <form class="auth-panel" data-panel="citizen-signin" id="citizenSigninForm" novalidate>
+              <div class="auth-tabs" role="tablist" aria-label="Citizen account">
+                <button class="auth-tab is-on" type="button" role="tab" aria-selected="true" data-tab="signin">Sign in</button>
+                <button class="auth-tab" type="button" role="tab" aria-selected="false" data-tab="signup">Create account</button>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  <input class="auth-input auth-input--icon" id="signinEmail" type="email" placeholder=" " autocomplete="email" required />
+                  <label for="signinEmail">Email address</label>
+                </div>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V8a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.7"/></svg>
+                  <input class="auth-input auth-input--icon" id="signinPassword" type="password" placeholder=" " autocomplete="current-password" required />
+                  <label for="signinPassword">Password</label>
+                  <button class="auth-eye" type="button" data-for="signinPassword" aria-pressed="false" aria-label="Show password">
+                    <svg class="eye-on" viewBox="0 0 24 24" fill="none"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+                    <svg class="eye-off" viewBox="0 0 24 24" fill="none"><path d="M3 3l18 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M10.6 6.1A9.9 9.9 0 0112 6c6 0 9.5 6 9.5 6a17 17 0 01-3.3 3.9M6.4 8A16.7 16.7 0 002.5 12S6 18 12 18c1.3 0 2.5-.2 3.6-.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9.9 9.9a3 3 0 004.2 4.2" stroke="currentColor" stroke-width="1.7"/></svg>
+                  </button>
+                </div>
+                <p class="auth-caps">⇪ Caps Lock is on</p>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <div class="auth-row">
+                <label class="auth-check"><input type="checkbox" id="signinRemember" checked /><span>Keep me signed in</span></label>
+                <a class="auth-link" href="#" id="forgotPassword">Forgot password?</a>
+              </div>
+
+              <button class="btn btn-primary btn-auth" type="submit">Sign in to NIVARA →</button>
+
+              <div class="auth-divider">demo access</div>
+
+              <div class="auth-demo">
+                <button class="auth-demo__toggle" type="button" aria-expanded="false">
+                  <span>Use a demonstration account</span><span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div class="auth-demo__body">
+                  <button class="auth-demo__cred" type="button" data-fill='{"signinEmail":"anya.rao@nivara.demo","signinPassword":"city1234"}'>
+                    <span><small>Resident · Ward 12</small><code>anya.rao@nivara.demo</code></span>
+                    <b>city1234</b>
+                  </button>
+                  <button class="auth-demo__cred" type="button" data-fill='{"signinEmail":"arjun@nivara.demo","signinPassword":"city1234"}'>
+                    <span><small>Resident · Ward 7</small><code>arjun@nivara.demo</code></span>
+                    <b>city1234</b>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- CITIZEN · CREATE ACCOUNT -->
+            <form class="auth-panel" data-panel="citizen-signup" id="citizenSignupForm" novalidate>
+              <div class="auth-tabs" role="tablist" aria-label="Citizen account">
+                <button class="auth-tab" type="button" role="tab" aria-selected="false" data-tab="signin">Sign in</button>
+                <button class="auth-tab is-on" type="button" role="tab" aria-selected="true" data-tab="signup">Create account</button>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c.9-3.6 3.6-5.4 7-5.4s6.1 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  <input class="auth-input auth-input--icon" id="signupName" type="text" placeholder=" " autocomplete="name" required />
+                  <label for="signupName">Full name</label>
+                </div>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  <input class="auth-input auth-input--icon" id="signupEmail" type="email" placeholder=" " autocomplete="email" required />
+                  <label for="signupEmail">Email address</label>
+                </div>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  <input class="auth-input auth-input--icon" id="signupPhone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" required />
+                  <label for="signupPhone">Mobile number</label>
+                </div>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V8a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.7"/></svg>
+                  <input class="auth-input auth-input--icon" id="signupPassword" type="password" placeholder=" " autocomplete="new-password" required />
+                  <label for="signupPassword">Password</label>
+                  <button class="auth-eye" type="button" data-for="signupPassword" aria-pressed="false" aria-label="Show password">
+                    <svg class="eye-on" viewBox="0 0 24 24" fill="none"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+                    <svg class="eye-off" viewBox="0 0 24 24" fill="none"><path d="M3 3l18 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M10.6 6.1A9.9 9.9 0 0112 6c6 0 9.5 6 9.5 6a17 17 0 01-3.3 3.9M6.4 8A16.7 16.7 0 002.5 12S6 18 12 18c1.3 0 2.5-.2 3.6-.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9.9 9.9a3 3 0 004.2 4.2" stroke="currentColor" stroke-width="1.7"/></svg>
+                  </button>
+                </div>
+                <p class="auth-caps">⇪ Caps Lock is on</p>
+                <p class="auth-error" role="alert"></p>
+                <div class="strength" id="passwordStrength" data-level="0" style="visibility:hidden">
+                  <div class="strength__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                  <small>Too short</small>
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <input class="auth-input auth-input--icon" id="signupConfirm" type="password" placeholder=" " autocomplete="new-password" required />
+                  <label for="signupConfirm">Confirm password</label>
+                </div>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <label class="auth-check">
+                <input type="checkbox" id="signupTerms" />
+                <span>I agree to the NIVARA community guidelines and understand reports are stored on this device.</span>
+              </label>
+
+              <button class="btn btn-primary btn-auth" type="submit">Create my account →</button>
+            </form>
+
+            <!-- AUTHORITY · SIGN IN -->
+            <form class="auth-panel is-on" data-panel="authority-signin" id="authorityForm" novalidate>
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/><circle cx="8.5" cy="11" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 16c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                  <input class="auth-input auth-input--icon" id="authEmployeeId" type="text" placeholder=" " autocomplete="username" spellcheck="false" required />
+                  <label for="authEmployeeId">Authority ID</label>
+                </div>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <div class="auth-select-wrap">
+                <span>Department</span>
+                <div class="auth-field__box">
+                  <select class="auth-select" id="authDepartment" required>
+                    <option value="">Select your department</option>
+                    <option>Mobility &amp; Traffic</option>
+                    <option>Roads &amp; Civil Works</option>
+                    <option>Sanitation</option>
+                    <option>Water &amp; Drainage</option>
+                    <option>Electrical Quick Response</option>
+                    <option>Parks &amp; Horticulture</option>
+                    <option>Accessibility Cell</option>
+                    <option>General Services</option>
+                  </select>
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 20v-5h6v5" stroke="currentColor" stroke-width="1.7"/></svg>
+                  <span class="auth-select__chevron" aria-hidden="true"></span>
+                </div>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <div class="auth-field">
+                <div class="auth-field__box">
+                  <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V8a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></svg>
+                  <input class="auth-input auth-input--icon" id="authCode" type="password" placeholder=" " autocomplete="current-password" required />
+                  <label for="authCode">Secure access code</label>
+                  <button class="auth-eye" type="button" data-for="authCode" aria-pressed="false" aria-label="Show password">
+                    <svg class="eye-on" viewBox="0 0 24 24" fill="none"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+                    <svg class="eye-off" viewBox="0 0 24 24" fill="none"><path d="M3 3l18 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M10.6 6.1A9.9 9.9 0 0112 6c6 0 9.5 6 9.5 6a17 17 0 01-3.3 3.9M6.4 8A16.7 16.7 0 002.5 12S6 18 12 18c1.3 0 2.5-.2 3.6-.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9.9 9.9a3 3 0 004.2 4.2" stroke="currentColor" stroke-width="1.7"/></svg>
+                  </button>
+                </div>
+                <p class="auth-caps">⇪ Caps Lock is on</p>
+                <p class="auth-error" role="alert"></p>
+              </div>
+
+              <label class="auth-check">
+                <input type="checkbox" id="authDevice" checked />
+                <span>This is a trusted municipal device — reduce verification prompts.</span>
+              </label>
+
+              <button class="btn btn-primary btn-auth" type="submit">Verify credentials →</button>
+
+              <p class="auth-note">Officer access is logged. Every triage action is attributed to your ID.</p>
+
+              <div class="auth-divider">demo access</div>
+
+              <div class="auth-demo">
+                <button class="auth-demo__toggle" type="button" aria-expanded="false">
+                  <span>Use a demonstration officer</span><span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div class="auth-demo__body">
+                  <button class="auth-demo__cred" type="button" data-fill='{"authEmployeeId":"NVR-OFF-2291","authDepartment":"Mobility & Traffic","authCode":"secure@123"}'>
+                    <span><small>Deputy Commissioner (Traffic)</small><code>NVR-OFF-2291</code></span>
+                    <b>secure@123</b>
+                  </button>
+                  <button class="auth-demo__cred" type="button" data-fill='{"authEmployeeId":"NVR-OFF-1180","authDepartment":"Sanitation","authCode":"secure@123"}'>
+                    <span><small>Health Officer · Sanitation</small><code>NVR-OFF-1180</code></span>
+                    <b>secure@123</b>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- AUTHORITY · OTP -->
+            <form class="auth-panel" data-panel="authority-otp" id="otpForm" novalidate>
+              <div class="auth-otp__head">
+                <h2>Two-factor check</h2>
+                <p id="otpEcho">Enter the 6-digit code sent to the registered device.</p>
+              </div>
+
+              <div class="otp-row" role="group" aria-label="6-digit verification code">
+                <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1" autocomplete="one-time-code" />
+                <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2" />
+                <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3" />
+                <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4" />
+                <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 5" />
+                <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 6" />
+              </div>
+              <p class="auth-error" role="alert"></p>
+
+              <button class="btn btn-primary btn-auth" type="submit">Confirm &amp; enter console →</button>
+
+              <div class="auth-row">
+                <button class="otp-back" type="button" id="otpBack">← Back to sign in</button>
+                <button class="btn-resend" type="button" id="resendOtp" disabled>Resend code in 30s</button>
+              </div>
+
+              <p class="auth-note">Demonstration: any six digits work — except <code>000000</code>, which is rejected.</p>
+            </form>
+          </div>
+
+          <p class="auth-note" style="margin-top:22px">
+            No municipal system is connected. Accounts live in this browser only — see
+            <a class="auth-link" href="index.html#about">About NIVARA</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- VISUAL -->
+      <aside class="auth-side-visual" aria-label="Why sign in">
+        <div class="auth-orb" aria-hidden="true"></div>
+        <div class="auth-rings" aria-hidden="true">
+          <span class="auth-ring"></span><span class="auth-ring"></span><span class="auth-ring"></span>
+        </div>
+
+        <div class="auth-visual-pane" data-pane="citizen">
+          <div class="is-in-stagger">
+            <p class="kicker">Citizen portal</p>
+            <h2>Report it. Track it. <span class="grad">Fix it.</span></h2>
+            <p class="lede">Sign in to file civic issues with photos and a map pin, follow every repair, and see how your ward is doing against SDG 11.</p>
+            <ul class="auth-points">
+              <li>
+                <span class="pt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <span><b>File a report in minutes</b><small>Photos, category, urgency, and a dropped pin.</small></span>
+              </li>
+              <li>
+                <span class="pt-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                <span><b>Follow the SLA clock</b><small>See when the department is due to respond.</small></span>
+              </li>
+              <li>
+                <span class="pt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.4 7-11a7 7 0 10-14 0c0 5.6 7 11 7 11z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                <span><b>Pin issues on the live map</b><small>Your neighbourhood, in public view.</small></span>
+              </li>
+            </ul>
+            <div class="auth-stats">
+              <div class="glass auth-stat"><span>Issues resolved</span><strong data-count="1284" data-suffix="">0</strong></div>
+              <div class="glass auth-stat"><span>Avg. response</span><strong data-count="18" data-suffix="h">0h</strong></div>
+              <div class="glass auth-stat"><span>Wards live</span><strong data-count="24" data-suffix="">0</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-visual-pane is-on" data-pane="authority">
+          <div class="is-in-stagger">
+            <p class="kicker">Authority console</p>
+            <h2>See the city <span class="grad">as a system.</span></h2>
+            <p class="lede">Officer sign-in opens the triage queue: route reports to departments, watch SLA breach risk, and verify resolutions on the map.</p>
+            <ul class="auth-points">
+              <li>
+                <span class="pt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+                <span><b>Triage queue by ward and category</b><small>Everything the public reports, in one board.</small></span>
+              </li>
+              <li>
+                <span class="pt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.1-7 9.5-4.1-1.4-7-5.2-7-9.5V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><b>Attributed, auditable actions</b><small>Every status change carries your officer ID.</small></span>
+              </li>
+              <li>
+                <span class="pt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 15l4-5 3 3 4-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><b>SLA and workload analytics</b><small>Spot the department that is falling behind.</small></span>
+              </li>
+            </ul>
+            <div class="auth-stats">
+              <div class="glass auth-stat"><span>Open reports</span><strong data-count="312" data-suffix="">0</strong></div>
+              <div class="glass auth-stat"><span>SLA met</span><strong data-count="91" data-suffix="%">0%</strong></div>
+              <div class="glass auth-stat"><span>Departments</span><strong data-count="8" data-suffix="">0</strong></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <footer class="auth-footer">
+        <span>© <span id="year"></span> NIVARA · Academic demonstration · SDG 11</span>
+        <span>
+          <a href="index.html">Home</a> ·
+          <a href="report.html">Report an issue</a> ·
+          <a href="map.html">Live map</a> ·
+          <a href="login.html">Citizen sign in</a>
+        </span>
+      </footer>
+    </main>
+
+    <!-- reset password modal -->
+    <div class="modal" id="resetModal" role="dialog" aria-modal="true" aria-labelledby="resetTitle" hidden>
+      <form class="glass modal-card" id="resetForm" novalidate>
+        <h3 id="resetTitle">Reset your password</h3>
+        <p>Enter the email on your citizen account. In this demonstration no mail is sent — the flow is shown for completeness.</p>
+        <div class="auth-field" style="margin-top:16px">
+          <div class="auth-field__box">
+            <svg class="auth-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <input class="auth-input auth-input--icon" id="resetEmail" type="email" placeholder=" " autocomplete="email" required />
+            <label for="resetEmail">Email address</label>
+          </div>
+          <p class="auth-error" role="alert"></p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" type="submit">Send reset link</button>
+          <button class="btn" type="button" id="resetClose">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+    <script src="js/config.js?v=20261020e"></script>
+    <script type="module" src="js/login.js?v=20261020e"></script>
+  </body>
+</html>

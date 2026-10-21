@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My reports | NIVARA</title>
+    <meta name="description" content="Track the civic issues you reported to NIVARA and follow their progress." />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css?v=20261020e" />
+    <link rel="stylesheet" href="css/animations.css?v=20261020e" />
+    <link rel="stylesheet" href="css/responsive.css?v=20261020e" />
+    <link rel="stylesheet" href="css/pages.css?v=20261020e" />
+  </head>
+  <body data-page="my-reports">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div data-site-nav></div>
+
+    <main id="main" class="page-main">
+      <div class="wrap">
+        <header class="page-head">
+          <div>
+            <p class="kicker">Citizen portal · My reports</p>
+            <h1>Track your reports</h1>
+            <p>Follow every issue from submission to resolution. Records are kept in this browser and in the Nivara database when the API is running.</p>
+          </div>
+          <a class="btn btn-primary" href="login.html?next=report.html&amp;msg=report">＋ New report</a>
+        </header>
+
+        <div class="glass map-tools reports-toolbar">
+          <label class="search-field">
+            <span class="sr-only">Search my reports</span>
+            <span class="search-field__icon" aria-hidden="true">⌕</span>
+            <input class="form-control" type="search" id="reportSearch" placeholder="Search by title, location, or reference…" />
+          </label>
+          <div class="map-filters" id="statusFilters"></div>
+        </div>
+
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:22px" id="reportStats"></div>
+        <div class="reports-grid" id="reportsGrid"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-bottom">
+        <span>© <span id="year"></span> NIVARA · Academic demonstration</span>
+        <span><a href="map.html">Live map</a> · <a href="report.html">Report an issue</a></span>
+      </div>
+    </footer>
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+    <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+    <script src="js/config.js?v=20261020e"></script>
+    <script type="module" src="js/my-reports.js?v=20261020e"></script>
+  </body>
+</html>
